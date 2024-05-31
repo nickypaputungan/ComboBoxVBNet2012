@@ -1,0 +1,9 @@
+Sub TampilKecamatan()
+        Call Koneksi()
+        Cmd = New OdbcCommand("Select distinct Kecamatan From dpt_dapilsatu", Conn)
+        Rd = Cmd.ExecuteReader
+        CbxKecamatan.Items.Clear()
+        While Rd.Read
+            CbxKecamatan.Items.Add(Rd.Item("Kecamatan"))
+        End While
+    End Sub
